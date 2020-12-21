@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="cppasv",
-    version="0.2.0"
+    version="0.2.0",
     author="Julian Rüth",
     author_email="julian.rueth@fsfe.org",
     description="Google C++ Benchmarks in Airspeed Velocity",
