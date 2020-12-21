@@ -76,6 +76,9 @@ def sanitize_benchmark_name(name):
     name = name.replace("<", "⟨")
     name = name.replace(">", "⟩")
 
+    # :: break resulting HTML output (graphs do not display for such methods) so we replace them with similarly looking unicode characters.
+    name = name.replace("::", "∷")
+
     return name
 
 def create_time_methods(benchmark, benchmarks):
