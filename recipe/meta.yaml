@@ -1,0 +1,29 @@
+{% set version = "0.1.0" %}
+
+package:
+  name: cppasv
+  version: {{ version }}
+
+source:
+  url: ../
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - cppasv
+
+about:
+  home: https://github.com/flatsurf/cppasv
+  license: BSD
+  summary: 'Google Benchmarks in Airspeed Velocity'
