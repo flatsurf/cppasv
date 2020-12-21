@@ -1,0 +1,23 @@
+name: Publish to Anaconda
+on:
+  push: { branches: [ "main" ] }
+  pull_request: { branches: [ "main" ] }
+
+jobs:
+  conda-build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: docker pull condaforge/linux-anvil-comp7
+    - name: Build cppasv
+      uses: flatsurf/actions/conda-forge-build@main
+      with:
+        recipe: recipe
+    - uses: actions/upload-artifact@v2
+      with:
+        name: conda-packages
+        path: conda-build/
+    - uses: flatsurf/actions/anaconda-upload@main
+      with:
+        user: flatsurf
+        token: ${{ secrets.BINSTAR_TOKEN }}

@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: ../
+  path: ../
 
 build:
   noarch: python
