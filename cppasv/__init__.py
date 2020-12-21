@@ -68,11 +68,11 @@ def create_benchmark_class(name, time_method):
 
 def sanitize_benchmark_name(name):
     r"""
-    Return the Google Benchmark name `name` rewritten as a valid Python 3 identifier.
+    Return the Google Benchmark name `name` rewritten as an identifier that ASV accepts.
     """
     name = name.strip()
 
-    # < and > are not allowed in Python identifiers, so we replace them with similarly looking unicode characters.
+    # < and > break resulting HTML output, so we replace them with similarly looking unicode characters.
     name = name.replace("<", "⟨")
     name = name.replace(">", "⟩")
 
