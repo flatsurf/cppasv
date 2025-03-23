@@ -110,7 +110,7 @@ def create_time_method(benchmark, name):
         import json
         out = json.loads(out)
 
-        assert(len(out["benchmarks"]) == 1)
+        assert len(out["benchmarks"]) == 1, f"expected exactly one benchmark result but got {out!r}"
         time = out["benchmarks"][0]["cpu_time"]
         unit = out["benchmarks"][0]["time_unit"]
 
