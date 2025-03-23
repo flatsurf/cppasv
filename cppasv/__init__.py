@@ -105,7 +105,7 @@ def create_time_method(benchmark, name):
         filter = f"{name}"
         if params:
             filter = f"{name}/{params.replace(', ', '/')}"
-        out = subprocess.check_output([benchmark, f"--benchmark_filter={filter}", "--benchmark_format=json"])
+        out = subprocess.check_output([benchmark, f"--benchmark_filter=^{filter}$", "--benchmark_format=json"])
 
         import json
         out = json.loads(out)
